@@ -30,8 +30,18 @@
             "list animal names",
             "list internet animal names"
           ]
-        }
-        ,
+        },
+        {
+          "name": "AnswerInent",
+          "samples": ["{InternetName}"],
+          "slots": [
+            {
+              "name": "InternetName",
+              "type": "INTERNET_ANIMAL_NAME",
+              "samples": []
+            }
+          ]
+        },
         {
           "name": "QuizIntent",
           "samples": [
@@ -42,8 +52,7 @@
             "and quiz me",
             "for a quiz",
             "a quiz"
-          ],
-          "slots": []
+          ]
         }
       ],
       "types": [
@@ -67,7 +76,7 @@
             },
             {
               "name": {
-                "value": "Smart Monkeys"
+                "value": "Smart Monkey"
               }
             },
             {
@@ -78,11 +87,6 @@
             {
               "name": {
                 "value": "Saltwater Death Panda"
-              }
-            },
-            {
-              "name": {
-                "value": "Prickle Puppy"
               }
             },
             {

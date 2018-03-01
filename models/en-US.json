@@ -32,6 +32,17 @@
           ]
         },
         {
+          "name": "AnswerInent",
+          "samples": ["{InternetName}"],
+          "slots": [
+            {
+              "name": "InternetName",
+              "type": "INTERNET_ANIMAL_NAME",
+              "samples": []
+            }
+          ]
+        },
+        {
           "name": "QuizIntent",
           "samples": [
             "start internet animal quiz",
@@ -41,8 +52,7 @@
             "and quiz me",
             "for a quiz",
             "a quiz"
-          ],
-          "slots": []
+          ]
         }
       ],
       "types": [

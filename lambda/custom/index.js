@@ -22,7 +22,7 @@ function getQuestion(counter, item)
 //a state abbreviation, we add some SSML to make sure that Alexa spells that abbreviation out (instead of trying to pronounce it.)
 function getAnswer(item)
 {
-  return item.InternetName + " is the internet name for a " + item.Name;
+  return item.InternetName + " is the internet name for a " + item.Name + "<break strength='x-strong'/>";
 }
 
 //This is a list of positive speechcons that this skill will use when a user gets a correct answer.  For a full list of supported
@@ -46,7 +46,7 @@ const START_QUIZ_MESSAGE = "OK.  I will ask you 10 questions about internet anim
 const EXIT_SKILL_MESSAGE = "Thank you for playing Quiz Day!  Let's play again soon!";
 
 //This is the message a user will hear after they ask (and hear) about a specific data element.
-const REPROMPT_SPEECH = "Which other animal would you like to hear about?";
+const REPROMPT_SPEECH = "What else would you like to do? You can say \"list animal names\" to hear the list again, or say \"start qiuz\" to start a quiz on internet animal names.";
 
 //This is the message a user will hear when they ask Alexa for help in your skill.
 const HELP_MESSAGE = "I know some things about weird internet animals names.  You can ask me for a list of animals and their internet names.  You can also test your knowledge by asking me to start a quiz.  What would you like to do?";
@@ -169,31 +169,19 @@ const startHandlers = Alexa.CreateStateHandler(animals.START,{
 
 const listHandlers = Alexa.CreateStateHandler(animals.LIST,{
   "List": function() {
-    let item = getItem(this.event.request.intent.slots);
     let outputArray = [];
     let outputSpeech;
-    if (item && item[Object.getOwnPropertyNames(data[0])[0]] != undefined)
-    {
-      for(let animal in data) {
-        outputArray.push(getAnswer(animal));
-      }
-      outputSpeech = outputArray.join("\n");
-      this.response.speak(outputSpeech).listen(REPROMPT_SPEECH);
+
+    for(let animal of data) {
+      outputArray.push(getAnswer(animal));
     }
-    else
-    {
-      this.response.speak(getBadAnswer(item)).listen(getBadAnswer(item));
-    }
+    outputSpeech = outputArray.join("\n\n");
+    this.response.speak(outputSpeech).listen(REPROMPT_SPEECH);
 
     this.emit(":responseReady");
   },
-  "AMAZON.RepeatIntent": function() {
-      let question = getQuestion(this.attributes["counter"], this.attributes["quizitem"]);
-      this.response.speak(question).listen(question);
-      this.emit(":responseReady");
-  },
   "AMAZON.StartOverIntent": function() {
-      this.emitWithState("Quiz");
+      this.emitWithState("List");
   },
   "AMAZON.StopIntent": function() {
       this.response.speak(EXIT_SKILL_MESSAGE);
@@ -233,7 +221,7 @@ const quizHandlers = Alexa.CreateStateHandler(animals.QUIZ,{
         let item = data[random];
 
         let propertyArray = Object.getOwnPropertyNames(item);
-        let property = propertyArray[getRandom(1, propertyArray.length-1)];
+        let property = propertyArray[1];
 
         this.attributes["quizitem"] = item;
         this.attributes["quizproperty"] = property;
@@ -249,7 +237,6 @@ const quizHandlers = Alexa.CreateStateHandler(animals.QUIZ,{
         let speechOutput = "";
         let item = this.attributes["quizitem"];
         let property = this.attributes["quizproperty"];
-
         let correct = compareSlots(this.event.request.intent.slots, item[property]);
 
         if (correct)
