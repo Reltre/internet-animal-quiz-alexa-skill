@@ -1,0 +1,56 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "See what you know about weird names of animals found on the internet.",
+          "examplePhrases": [
+            "Alexa, open quiz day",
+            "Alexa, play quiz day"
+          ],
+          "keywords": [
+            "quiz",
+            "games",
+            "internet culture"
+          ],
+          "name": "quiz day",
+          "description": "Test your knowledge of weird internet animal names.\n\nTo start, just say \"Alexa, launch quiz day\" or \"Alexa, open quiz day\" to start the game.\n\nAt anytime, you can stop the game by saying \"Alexa, stop\""
+        },
+        "en-GB": {
+          "summary": "Test your knowledge of weird internet animal names.",
+          "examplePhrases": [
+            "Alexa, open quiz day",
+            "Alexa, play quiz day"
+          ],
+          "keywords": [
+            "quiz",
+            "games",
+            "internet culture"
+          ],
+          "name": "quiz day",
+          "description": "Test your knowledge of weird internet animal names.\n\nTo start, just say \"Alexa, launch quiz day\" or \"Alexa, open quiz day\" to start the game.\n\nAt anytime, you can stop the game by saying \"Alexa, stop\""
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Include your testing instruction (if any) here",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

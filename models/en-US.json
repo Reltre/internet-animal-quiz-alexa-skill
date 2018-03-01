@@ -1,0 +1,107 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "quiz day",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StartOverIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "ListIntent",
+          "samples": [
+            "tell me about animal names on the internet",
+            "list animal names",
+            "list internet animal names"
+          ]
+        },
+        {
+          "name": "QuizIntent",
+          "samples": [
+            "start internet animal quiz",
+            "start quiz day",
+            "start iaq",
+            "and start a quiz",
+            "and quiz me",
+            "for a quiz",
+            "a quiz"
+          ],
+          "slots": []
+        }
+      ],
+      "types": [
+        {
+          "name": "INTERNET_ANIMAL_NAME",
+          "values": [
+            {
+              "name": {
+                "value": "Artichoke Sloth"
+              }
+            },
+            {
+              "name": {
+                "value": "Smelly Cat"
+              }
+            },
+            {
+              "name": {
+                "value": "Ouch Mouse"
+              }
+            },
+            {
+              "name": {
+                "value": "Smart Monkey"
+              }
+            },
+            {
+              "name": {
+                "value": "Danger Noodle"
+              }
+            },
+            {
+              "name": {
+                "value": "Saltwater Death Panda"
+              }
+            },
+            {
+              "name": {
+                "value": "Zombie Monkey"
+              }
+            },
+            {
+              "name": {
+                "value": "Water Pancake"
+              }
+            },
+            {
+              "name": {
+                "value": "Flying Chihuahua"
+              }
+            },
+            {
+              "name": {
+                "value": "Tank Puppy"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

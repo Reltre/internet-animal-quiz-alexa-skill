@@ -1,0 +1,19 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.247075f1-393f-4575-b3cf-255c996e79c9",
+      "was_cloned": false,
+      "merge": {
+        "manifest": {
+          "apis": {
+            "custom": {
+              "endpoint": {
+                "uri": "ask-custom-QuizDay"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
